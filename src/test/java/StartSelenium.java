@@ -17,7 +17,7 @@ public class StartSelenium {
 
 
         // wd.close(); //close only one last tag
-       // wd.quit(); // close all tags & browser
+       wd.quit(); // close all tags & browser
     }
 
 

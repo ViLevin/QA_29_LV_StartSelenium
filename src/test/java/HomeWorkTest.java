@@ -1,7 +1,11 @@
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class HomeWorkTest {
     WebDriver wd;
@@ -38,18 +42,43 @@ public class HomeWorkTest {
 
         //by id
         WebElement id = wd.findElement(By.id("root"));
-        WebElement id1 = wd.findElement(By.cssSelector("#root"));//#=id
+//        WebElement id1 = wd.findElement(By.cssSelector("#root"));//#=id
 
 
         //by attribute =[]
-        WebElement element0 = wd.findElement(By.cssSelector("[href = '/home']"));
-        System.out.printf("element0: %s\n", element0);
+        WebElement element10 = wd.findElement(By.cssSelector("[href = '/home']"));
+        System.out.printf("element0: %s\n", element10);
 
         WebElement element = wd.findElement(By.cssSelector("[placeholder='Email']"));
         WebElement element1 = wd.findElement(By.cssSelector("[href = '/home']"));
         WebElement element2 = wd.findElement(By.cssSelector("[name = 'password']"));
         WebElement element3 = wd.findElement(By.name("password"));
 
+        WebElement passwordInp = wd.findElement(By.xpath("//input[@placeholder='Password']"));
+        WebElement passwordInp1 = wd.findElement(By.xpath("//input[starts-with(@placeholder, 'Pas')]"));
+     //   WebElement passwordInp2 = wd.findElement(By.xpath("//input[@contains(@placeholder,'rd')]"));
 
+
+        // parent
+        WebElement element4 = wd.findElement(By.xpath("//h1/parent::*"));//h1/parent::*
+        WebElement element5 = wd.findElement(By.xpath("//h1/parent::div"));
+        WebElement element6 = wd.findElement(By.xpath("//h1/.."));
+
+        // ancestor
+        WebElement element7 = wd.findElement(By.xpath("//h1/ancestor::*"));
+        WebElement element8 = wd.findElement(By.xpath("//h1/ancestor::div")); //two options
+        WebElement element9 = wd.findElement(By.xpath("//h1/ancestor::div[2]")); //one options
+
+        // ancestor - or - self
+        List<WebElement> list3 = wd.findElements(By.xpath("//h1/ancestor-or-self::*"));
+
+//        follow-sibling
+        List<WebElement> list4 = wd.findElements(By.xpath("//h1/following-sibling::a"));
+
+//        preceding-sibling
+        List<WebElement> list5 = wd.findElements(By.xpath("//a[last()]/preceding-sibling::*"));
+        WebElement h2 = wd.findElement(By.xpath("//a[3]/preceding-sibling::h1"));
     }
+
+
 }
