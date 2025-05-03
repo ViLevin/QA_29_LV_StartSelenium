@@ -78,6 +78,8 @@ public class HomeWorkTest {
 //        preceding-sibling
         List<WebElement> list5 = wd.findElements(By.xpath("//a[last()]/preceding-sibling::*"));
         WebElement h2 = wd.findElement(By.xpath("//a[3]/preceding-sibling::h1"));
+
+        wd.quit();
     }
 
 
